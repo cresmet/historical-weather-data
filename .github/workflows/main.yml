@@ -46,7 +46,7 @@ jobs:
             git add .
             git commit -a -m "add weather data"
             git remote rm origin
-            git remote add origin https://cresmet:$PUSH_TOKEN@github.com/cresmet/historical-weather-data.git
+            git remote add -m origin https://cresmet:$PUSH_TOKEN@github.com/cresmet/historical-weather-data.git
             git push origin HEAD:master
           else
             echo 'unable to detect changes'
