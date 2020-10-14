@@ -1,8 +1,6 @@
 name: CI Build
 
-on:
-  schedule:
-    - cron: 0 12 * * *
+on: [push]
     
 jobs:
   build:
@@ -19,6 +17,7 @@ jobs:
       - name: Save current weather condition
         env:
           API_KEY: ${{ secrets.API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
         run: |
           FILE=./docs/assets/data/`date +"%Y%m%d"`.json
           if [ -f "$FILE" ]; then
