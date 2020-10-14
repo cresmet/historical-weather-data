@@ -35,23 +35,6 @@ jobs:
                   exit $status
               fi
           fi
-      - name: git check in
-        env:
-          GIT_OWNER_EMAIL: ${{ secrets.GIT_OWNER_EMAIL }} 
-          PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
-        run: |
-          git config user.email "$GIT_OWNER_EMAIL"
-          git config user.name "cresmet"
-          git status
-          if [[ `git status --porcelain` ]]; then
-            git add .
-            git commit -a -m "add weather data"
-            git remote rm origin
-            git remote add origin https://cresmet:$PUSH_TOKEN@github.com/cresmet/historical-weather-data.git
-            git push origin HEAD:master
-          else
-            echo 'unable to detect changes'
-          fi
       - name: Commit files
         id: commit
         run: |
