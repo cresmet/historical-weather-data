@@ -49,5 +49,5 @@ jobs:
             git remote add origin https://cresmet:$PUSH_TOKEN@github.com/cresmet/historical-weather-data.git
             git push origin HEAD:master
           else
-            echo 'unable to detech changes'
+            echo 'unable to detect changes'
           fi
