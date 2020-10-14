@@ -1,8 +1,6 @@
 name: CI Build
 
-on:
-  schedule:
-    - cron: 0 12 * * *
+on: [push]
     
 jobs:
   build:
@@ -48,7 +46,7 @@ jobs:
             git add .
             git commit -a -m "add weather data"
             git remote rm origin
-            git remote add origin https://changhuixu:$PUSH_TOKEN@github.com/changhuixu/historical-weather-data.git
+            git remote add origin https://cresmet:$PUSH_TOKEN@github.com/cresmet/historical-weather-data.git
             git push origin HEAD:master
           else
             echo 'unable to detech changes'
